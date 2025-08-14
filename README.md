@@ -181,6 +181,7 @@ To troubleshoot these issues, `netshoot` includes a set of powerful tools as rec
     ltrace \
     mtr \
     net-snmp-tools \
+    net-tools \
     netcat-openbsd \
     nftables \
     ngrep \
@@ -207,7 +208,8 @@ To troubleshoot these issues, `netshoot` includes a set of powerful tools as rec
     websocat \
     swaks \
     perl-crypt-ssleay \
-    perl-net-ssleay
+    perl-net-ssleay \
+    hping3
 
 Additionally, the following binaries are included:
 
