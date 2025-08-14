@@ -273,6 +273,25 @@ Purpose: drill is a tool to designed to get all sorts of information out of the 
 $ docker run -it --net container:perf-test-a nicolaka/netshoot drill -V 5 perf-test-b
 ```
 
+## hping
+
+Purpose: Packet generator capable of doing quite a lot. In terms of troubleshooting, very useful to test
+network latency where ICMP does not work.
+
+Example : Test network latency from the container to a remote host on a specific port
+```
+🐳  → docker run -it --net container:perf-test-a.1.bil2mo8inj3r9nyrss1g15qav nicolaka/netshoot hping -S -c 5 google.com -p 80
+HPING google.com (eth0 74.125.201.139): S set, 40 headers + 0 data bytes
+len=44 ip=74.125.201.139 ttl=62 id=40057 sport=80 flags=SA seq=0 win=65504 rtt=42.8 ms
+len=44 ip=74.125.201.139 ttl=62 id=40058 sport=80 flags=SA seq=1 win=65504 rtt=44.6 ms
+len=44 ip=74.125.201.139 ttl=62 id=40059 sport=80 flags=SA seq=2 win=65504 rtt=43.1 ms
+len=44 ip=74.125.201.139 ttl=62 id=40060 sport=80 flags=SA seq=3 win=65504 rtt=37.2 ms
+len=44 ip=74.125.201.139 ttl=62 id=40061 sport=80 flags=SA seq=4 win=65504 rtt=34.6 ms
+--- google.com hping statistic ---
+5 packets tramitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 34.6/40.5/44.6 ms
+```
+
 ### netcat
 
 Purpose: a simple Unix utility that reads and writes data across network connections, using the TCP or UDP protocol. It's useful for testing and troubleshooting TCP/UDP connections. `netcat` can be used to detect if there's a firewall rule blocking certain ports.
