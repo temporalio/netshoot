@@ -26,6 +26,7 @@ check file
 check fortio
 check fping
 check grpcurl
+check hping3
 check http
 check iftop
 check ip
@@ -39,6 +40,7 @@ check jq
 check ltrace
 check mtr
 check nc
+check netstat
 check nft
 check ngrep
 check nmap

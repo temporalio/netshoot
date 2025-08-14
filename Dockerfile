@@ -17,7 +17,7 @@ LABEL org.opencontainers.image.title="netshoot" \
       org.opencontainers.image.source="https://github.com/nicolaka/netshoot" \
       org.opencontainers.image.version="${VERSION}"
 
-# trippy and swaks are only published in Alpine edge/testing. Tag that repo so
+# hping3, trippy and swaks are only published in Alpine edge/testing. Tag that repo so
 # the rest of the image stays on Alpine 3.24 main/community.
 RUN echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
     && apk add --no-cache \
@@ -36,6 +36,7 @@ RUN echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/a
     fping \
     gcompat \
     git \
+    hping3@testing \
     httpie \
     iftop \
     iperf \
@@ -51,6 +52,7 @@ RUN echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/a
     ltrace \
     mtr \
     net-snmp-tools \
+    net-tools \
     netcat-openbsd \
     nftables \
     ngrep \

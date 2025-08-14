@@ -131,6 +131,9 @@ iperf3 -c <pod-A-ip> -t 30
 
 # Measure UDP throughput and jitter
 iperf3 -c <pod-A-ip> -u -b 1G
+
+# Measure TCP latency to a specific port when ICMP is blocked
+hping3 -S -c 5 -p 80 <destination>
 ```
 
 ---
@@ -288,6 +291,7 @@ docker run -it --rm \
 | `mtr` | Traceroute + ping combined |
 | `trippy` | TUI traceroute |
 | `fping` | Parallel ICMP probing |
+| `hping3` | TCP/UDP/ICMP packet generator and latency probe |
 | `iputils` | ping, arping |
 | `speedtest-cli` | Internet speed test |
 | `ethtool` | NIC settings and stats |
@@ -321,6 +325,7 @@ docker run -it --rm \
 | `iptables` | Firewall rules |
 | `ipvsadm` | IPVS table inspection |
 | `tcptraceroute` | Traceroute over TCP |
+| `net-tools` | netstat, arp, route, ifconfig |
 
 ### Containers
 | Tool | Purpose |
