@@ -9,6 +9,7 @@ FROM alpine:3.24.4
 
 ARG VERSION=dev
 ARG OMZ_SHA=b509b1c6ed0c1ba37de12cbd37f30b2b2f61193a
+ARG ZSH_AUTOSUGGESTIONS_VERSION=0.7.1
 ARG POWERLEVEL10K_VERSION=1.20.0
 
 LABEL org.opencontainers.image.title="netshoot" \
@@ -94,6 +95,8 @@ COPY shell/motd /root/motd.template
 RUN curl -fsSL "https://github.com/ohmyzsh/ohmyzsh/archive/${OMZ_SHA}.tar.gz" | tar -xz -C /tmp \
     && mv "/tmp/ohmyzsh-${OMZ_SHA}" /root/.oh-my-zsh \
     && mkdir -p /root/.oh-my-zsh/custom/plugins /root/.oh-my-zsh/custom/themes \
+    && curl -fsSL "https://github.com/zsh-users/zsh-autosuggestions/archive/refs/tags/v${ZSH_AUTOSUGGESTIONS_VERSION}.tar.gz" | tar -xz -C /tmp \
+    && mv "/tmp/zsh-autosuggestions-${ZSH_AUTOSUGGESTIONS_VERSION}" /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions \
     && curl -fsSL "https://github.com/romkatv/powerlevel10k/archive/refs/tags/v${POWERLEVEL10K_VERSION}.tar.gz" | tar -xz -C /tmp \
     && mv "/tmp/powerlevel10k-${POWERLEVEL10K_VERSION}" /root/.oh-my-zsh/custom/themes/powerlevel10k \
     && sed "s/__VERSION__/${VERSION}/g" /root/motd.template > /root/motd \
