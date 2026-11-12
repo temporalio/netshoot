@@ -21,4 +21,4 @@ Image scans will report CVEs. Many are expected:
 - `ctop` (v0.7.7) and `termshark` (v2.4.0) are pinned to their last upstream releases. Those projects are quiet; the binaries are kept because they are still useful for interactive debugging.
 - Other GitHub-release binaries (`grpcurl`, `fortio`) are pinned with SHA256 checksums in `build/fetch_binaries.sh`.
 
-Rebuilding a git tag should fetch the same binary versions. Alpine packages come from the 3.22 repositories (plus tagged `edge/testing` for `hping3`, `trippy` and `swaks` only).
+Rebuilding a git tag should fetch the same binary versions. Alpine packages come from the 3.24 repositories (plus tagged `edge/testing` for `hping3`, `trippy` and `swaks` only).

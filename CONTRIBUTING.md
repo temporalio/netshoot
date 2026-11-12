@@ -5,7 +5,7 @@ PRs are welcome. The image is a network troubleshooting toolkit for Docker and K
 ## Adding a tool
 
 - Explain in the PR why the tool is not redundant with something already in the image.
-- Prefer an Alpine 3.22 `main` or `community` package. Add it to the `apk add` list in the `Dockerfile`.
+- Prefer an Alpine 3.24 `main` or `community` package. Add it to the `apk add` list in the `Dockerfile`.
 - If the package exists only in `edge/testing`, add it with `@testing` (see `trippy` and `swaks`) instead of enabling all of edge.
 - If the tool is a pre-built GitHub release binary, add a `get_<tool>()` function in `build/fetch_binaries.sh` with a **pinned version and SHA256**, call it at the bottom of the script, and add a matching `COPY --from=fetcher` line in the Dockerfile.
 - Add the tool to `Dockerfile.debian` as well: a Debian package goes in its `apt-get install` list (the comment above that list maps Alpine names to Debian ones), and a pre-built tool goes in its `builder` stage.

@@ -348,7 +348,7 @@ Each release publishes two multi-arch images, both for `linux/amd64` (x86_64) an
 
 | Image | Base | libc | Dockerfile | Tags |
 |---|---|---|---|---|
-| Alpine (default) | Alpine 3.22 | musl | `Dockerfile` | `:latest`, `:<version>`, `:<sha>` |
+| Alpine (default) | Alpine 3.24 | musl | `Dockerfile` | `:latest`, `:<version>`, `:<sha>` |
 
 ```bash
 docker pull nicolaka/netshoot:latest
@@ -362,7 +362,7 @@ docker pull nicolaka/netshoot:latest
 docker pull nicolaka/netshoot:latest-debian
 ```
 
-The Alpine image installs packages from the 3.22 `main` and `community` repositories. `hping3`, `trippy` and `swaks` come from a tagged `edge/testing` repo. `ctop`, `termshark`, `grpcurl`, and `fortio` are pinned GitHub release binaries.
+The Alpine image installs packages from the 3.24 `main` and `community` repositories. `hping3`, `trippy` and `swaks` come from a tagged `edge/testing` repo. `ctop`, `termshark`, `grpcurl`, and `fortio` are pinned GitHub release binaries.
 
 The Debian image is the same toolset built for glibc. Those four Go tools are compiled from source with the current Go toolchain instead of the old release binaries. Package names follow Debian (`drill` is in `ldnsutils`, `nping` is part of `nmap`, the image ships `openssh-client` and no sshd). The `trippy` binary is named `trip`.
 
