@@ -84,9 +84,6 @@ COPY --from=fetcher /tmp/grpcurl /usr/local/bin/grpcurl
 COPY --from=fetcher /tmp/fortio /usr/local/bin/fortio
 COPY build/smoke.sh /usr/local/bin/netshoot-smoke
 
-# Fix the local root user vulnerability issue
-RUN echo -e 'PasswordAuthentication no\nPermitEmptyPasswords no\nPermitRootLogin prohibit-password' >> /etc/ssh/sshd_config
-
 USER root
 WORKDIR /root
 ENV HOSTNAME=netshoot
