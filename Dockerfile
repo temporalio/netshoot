@@ -5,7 +5,7 @@ RUN apt-get update \
 COPY build/fetch_binaries.sh /tmp/fetch_binaries.sh
 RUN chmod +x /tmp/fetch_binaries.sh && /tmp/fetch_binaries.sh
 
-FROM alpine:3.24.3
+FROM alpine:3.24.4
 
 ARG VERSION=dev
 ARG OMZ_SHA=b509b1c6ed0c1ba37de12cbd37f30b2b2f61193a
@@ -17,7 +17,7 @@ LABEL org.opencontainers.image.title="netshoot" \
       org.opencontainers.image.source="https://github.com/nicolaka/netshoot" \
       org.opencontainers.image.version="${VERSION}"
 
-# trippy and swaks are only published in Alpine edge/testing. Tag that repo so
+# hping3, trippy and swaks are only published in Alpine edge/testing. Tag that repo so
 # the rest of the image stays on Alpine 3.24 main/community.
 RUN echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
     && apk add --no-cache \
@@ -36,6 +36,7 @@ RUN echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/a
     fping \
     gcompat \
     git \
+    hping3@testing \
     httpie \
     iftop \
     iperf \
@@ -51,6 +52,7 @@ RUN echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/a
     ltrace \
     mtr \
     net-snmp-tools \
+    net-tools \
     netcat-openbsd \
     nftables \
     ngrep \

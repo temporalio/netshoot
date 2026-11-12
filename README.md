@@ -131,6 +131,9 @@ iperf3 -c <pod-A-ip> -t 30
 
 # Measure UDP throughput and jitter
 iperf3 -c <pod-A-ip> -u -b 1G
+
+# Measure TCP latency to a specific port when ICMP is blocked
+hping3 -S -c 5 -p 80 <destination>
 ```
 
 ---
@@ -288,6 +291,7 @@ docker run -it --rm \
 | `mtr` | Traceroute + ping combined |
 | `trippy` | TUI traceroute |
 | `fping` | Parallel ICMP probing |
+| `hping3` | TCP/UDP/ICMP packet generator and latency probe |
 | `iputils` | ping, arping |
 | `speedtest-cli` | Internet speed test |
 | `ethtool` | NIC settings and stats |
@@ -321,6 +325,7 @@ docker run -it --rm \
 | `iptables` | Firewall rules |
 | `ipvsadm` | IPVS table inspection |
 | `tcptraceroute` | Traceroute over TCP |
+| `net-tools` | netstat, arp, route, ifconfig |
 
 ### Containers
 | Tool | Purpose |
@@ -357,7 +362,7 @@ docker pull nicolaka/netshoot:latest
 docker pull nicolaka/netshoot:latest-debian
 ```
 
-The Alpine image installs packages from the 3.24 `main` and `community` repositories. `trippy` and `swaks` come from a tagged `edge/testing` repo. `ctop`, `termshark`, `grpcurl`, and `fortio` are pinned GitHub release binaries.
+The Alpine image installs packages from the 3.24 `main` and `community` repositories. `hping3`, `trippy` and `swaks` come from a tagged `edge/testing` repo. `ctop`, `termshark`, `grpcurl`, and `fortio` are pinned GitHub release binaries.
 
 The Debian image is the same toolset built for glibc. Those four Go tools are compiled from source with the current Go toolchain instead of the old release binaries. Package names follow Debian (`drill` is in `ldnsutils`, `nping` is part of `nmap`, the image ships `openssh-client` and no sshd). The `trippy` binary is named `trip`.
 

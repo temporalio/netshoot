@@ -99,6 +99,7 @@ RUN apt-get update \
     file \
     fping \
     git \
+    hping3 \
     httpie \
     iftop \
     inetutils-telnet \
@@ -118,6 +119,7 @@ RUN apt-get update \
     libnet-ssleay-perl \
     ltrace \
     mtr-tiny \
+    net-tools \
     netcat-openbsd \
     nftables \
     ngrep \
